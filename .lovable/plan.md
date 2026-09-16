@@ -5,7 +5,7 @@ Uma landing page longa, institucional e responsiva, com identidade própria da C
 
 ## Implementação
 - Reorganizar a página em componentes reutilizáveis: cabeçalho, hero, confiança, benefícios, processo, demonstração no smartphone, educação financeira, transparência, segurança, conteúdos, FAQ, chamada final e rodapé.
-- Manter o fluxo atual de simulação, cadastro, revisão e confirmação, acessível por todos os botões de simulação e preparado para uma futura rota `/simulador` sem criar um link quebrado agora.
+- Preservar integralmente o fluxo atual de simulação, cadastro, revisão e confirmação — incluindo cálculos e validações — alterando somente a ligação dos novos botões e preparando uma futura rota `/simulador` sem criar um link quebrado agora.
 - Criar áreas estáveis para as futuras imagens do hero e do smartphone, com proporções, textos alternativos, carregamento e posicionamento já definidos.
 - Consolidar o sistema visual em tokens: preto/grafite, branco e verde financeiro; Inter; bordas discretas; raios pequenos; sem brilho, gradientes chamativos ou glassmorphism.
 - Implementar menu móvel acessível, accordion navegável por teclado, sliders interativos e microinterações discretas.
