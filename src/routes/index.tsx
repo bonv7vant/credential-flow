@@ -1,6 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { ArrowRight, BadgeCheck, Check, ChevronLeft, Clock3, LockKeyhole, ShieldCheck, Smartphone, Sparkles } from "lucide-react";
 import { useMemo, useState } from "react";
+import type { ReactNode } from "react";
 import { z } from "zod";
 import { Button } from "../components/credpay/Button";
 import { calculateInstallment, formatCurrency, maskCpf, maskPhone, MAX_CREDIT, MIN_CREDIT } from "../lib/credit";
@@ -99,7 +100,7 @@ function Index() {
   );
 }
 
-function TrustItem({ icon, title, text }: { icon: React.ReactNode; title: string; text: string }) {
+function TrustItem({ icon, title, text }: { icon: ReactNode; title: string; text: string }) {
   return <div className="flex gap-4">{icon}<div><h2 className="font-semibold">{title}</h2><p className="mt-1 text-sm leading-relaxed text-muted-foreground">{text}</p></div></div>;
 }
 
