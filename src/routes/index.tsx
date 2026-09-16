@@ -1,9 +1,9 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { ArrowRight, BadgeCheck, Check, ChevronLeft, Clock3, LockKeyhole, ShieldCheck, Smartphone, Sparkles } from "lucide-react";
+import { ArrowRight, Check, ChevronLeft, ShieldCheck } from "lucide-react";
 import { useMemo, useState } from "react";
-import type { ReactNode } from "react";
 import { z } from "zod";
 import { Button } from "../components/credpay/Button";
+import { LandingPage } from "../components/credpay/LandingPage";
 import { calculateInstallment, formatCurrency, maskCpf, maskPhone, MAX_CREDIT, MIN_CREDIT } from "../lib/credit";
 
 export const Route = createFileRoute("/")({
@@ -87,21 +87,7 @@ function Index() {
     );
   }
 
-  return (
-    <main className="min-h-screen overflow-hidden bg-background text-foreground">
-      <nav className="mx-auto flex max-w-6xl items-center justify-between px-5 py-6"><div className="text-xl font-extrabold">cred<span className="text-primary">pay</span></div><div className="flex items-center gap-2 text-xs text-muted-foreground"><LockKeyhole className="size-3.5 text-primary" /> Ambiente seguro</div></nav>
-      <section className="mx-auto grid max-w-6xl items-center gap-12 px-5 pb-16 pt-10 md:grid-cols-2 md:pt-18">
-        <div><div className="mb-6 inline-flex items-center gap-2 rounded-full border border-border bg-secondary px-3 py-1.5 text-xs font-medium text-muted-foreground"><Sparkles className="size-3.5 text-primary" /> Simulação 100% online</div><h1 className="max-w-xl text-4xl font-extrabold leading-[1.08] sm:text-6xl">Crédito para avançar, <span className="text-primary">no seu ritmo.</span></h1><p className="mt-6 max-w-lg text-base leading-relaxed text-muted-foreground sm:text-lg">Simule em poucos minutos, compare as condições e só avance se a proposta fizer sentido para você.</p><Button className="mt-8 w-full sm:w-auto" onClick={start}>Simular meu crédito <ArrowRight className="size-4" /></Button><p className="mt-4 flex items-center gap-2 text-xs text-muted-foreground"><Check className="size-4 text-primary" /> Sem compromisso e sem taxa antecipada</p></div>
-        <div className="relative mx-auto w-full max-w-sm"><div className="absolute inset-10 rounded-full bg-primary/10 blur-3xl" /><div className="surface-glass relative rounded-[2rem] border-4 border-secondary p-3 shadow-2xl"><div className="rounded-[1.4rem] bg-card p-6"><div className="flex items-center justify-between"><span className="text-sm font-bold">cred<span className="text-primary">pay</span></span><Smartphone className="size-4 text-muted-foreground" /></div><p className="mt-12 text-xs text-muted-foreground">Crédito simulado</p><p className="mt-2 text-4xl font-extrabold">R$ 8.000</p><div className="mt-8 rounded-lg bg-primary p-5 text-primary-foreground"><p className="text-xs font-medium">Estimativa mensal</p><p className="mt-1 text-2xl font-bold">12x de R$ 756,02</p></div><div className="mt-5 grid grid-cols-2 gap-3"><div className="rounded-md bg-secondary p-4"><Clock3 className="size-4 text-primary" /><p className="mt-6 text-xs text-muted-foreground">Resposta ágil</p></div><div className="rounded-md bg-secondary p-4"><BadgeCheck className="size-4 text-primary" /><p className="mt-6 text-xs text-muted-foreground">Processo claro</p></div></div></div></div></div>
-      </section>
-      <section className="border-y border-border bg-secondary/40"><div className="mx-auto grid max-w-6xl gap-8 px-5 py-12 sm:grid-cols-3"><TrustItem icon={<ShieldCheck className="mt-0.5 size-5 shrink-0 text-primary" />} title="Dados protegidos" text="Boas práticas de segurança em todas as etapas." /><TrustItem icon={<Clock3 className="mt-0.5 size-5 shrink-0 text-primary" />} title="Processo rápido" text="Simulação objetiva, sem papelada nesta etapa." /><TrustItem icon={<BadgeCheck className="mt-0.5 size-5 shrink-0 text-primary" />} title="Decisão transparente" text="Você confere as condições antes de contratar." /></div></section>
-      <footer className="mx-auto max-w-6xl px-5 py-10 text-xs leading-relaxed text-muted-foreground"><p>Esta página oferece apenas uma simulação. Valores, taxas e aprovação dependem de análise e da proposta final. Nunca solicitamos pagamento antecipado para liberar crédito.</p></footer>
-    </main>
-  );
-}
-
-function TrustItem({ icon, title, text }: { icon: ReactNode; title: string; text: string }) {
-  return <div className="flex gap-4">{icon}<div><h2 className="font-semibold">{title}</h2><p className="mt-1 text-sm leading-relaxed text-muted-foreground">{text}</p></div></div>;
+  return <LandingPage onStart={start} />;
 }
 
 function Registration({ form, errors, onChange, onSubmit }: { form: Record<string,string>; errors: Record<string,string>; onChange: (key:string,value:string) => void; onSubmit: () => void }) {
