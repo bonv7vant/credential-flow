@@ -90,7 +90,7 @@
 .site-header { position: sticky; top: 0; z-index: 50; border-bottom: 1px solid var(--border); background: color-mix(in oklab, var(--background) 94%, transparent); backdrop-filter: blur(12px); }
 .nav-link, .footer-link { color: var(--muted-foreground); font-size: .875rem; transition: color 180ms ease; }
 .nav-link:hover, .footer-link:hover { color: var(--foreground); }
-.mobile-menu { position: absolute; inset-inline: 0; top: 100%; border-bottom: 1px solid var(--border); background: var(--background); }
+.mobile-menu { position: absolute; inset-inline: 0; top: 100%; min-height: calc(100dvh - 4.75rem); border-bottom: 1px solid var(--border); background: var(--background); }
 .mobile-nav-link { border-bottom: 1px solid var(--border); padding: .85rem 0; color: var(--muted-foreground); font-size: .9375rem; }
 .hero-section { border-bottom: 1px solid var(--border); }
 .eyebrow { color: var(--primary); font-size: .75rem; font-weight: 700; text-transform: uppercase; letter-spacing: .14em; }
