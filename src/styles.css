@@ -85,6 +85,7 @@
 
 @utility site-container { width: min(100% - 2.5rem, 76rem); margin-inline: auto; }
 @utility section-space { padding-block: clamp(5rem, 9vw, 8rem); }
+@utility surface-glass { background: var(--card); border: 1px solid var(--border); }
 
 .site-header { position: sticky; top: 0; z-index: 50; border-bottom: 1px solid var(--border); background: color-mix(in oklab, var(--background) 94%, transparent); backdrop-filter: blur(12px); }
 .nav-link, .footer-link { color: var(--muted-foreground); font-size: .875rem; transition: color 180ms ease; }
