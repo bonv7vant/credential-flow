@@ -2,7 +2,6 @@ import { useState, type ReactNode } from "react";
 import {
   ArrowRight,
   BookOpen,
-  Check,
   ChevronDown,
   Clock3,
   FileCheck2,
@@ -78,16 +77,16 @@ export function LandingPage({ onStart }: LandingPageProps) {
       </header>
 
       <section id="inicio" className="hero-section scroll-mt-20">
-        <div className="site-container grid min-h-[calc(100svh-72px)] items-center gap-12 py-16 lg:grid-cols-[0.9fr_1.1fr] lg:py-20">
-          <div className="max-w-2xl">
-            <p className="eyebrow">CredPay</p>
-            <h1 className="mt-6 text-4xl font-bold leading-[1.08] sm:text-5xl lg:text-6xl">Crédito para realizar seus planos.</h1>
-            <p className="mt-6 max-w-xl text-base leading-7 text-muted-foreground sm:text-lg">Simule seu empréstimo de forma simples, rápida e transparente.</p>
-            <div className="mt-9 flex flex-col gap-3 sm:flex-row">
-              <Button onClick={onStart}>Simular empréstimo <ArrowRight className="size-4" /></Button>
-              <Button variant="secondary" onClick={() => goTo("#como-funciona")}>Como funciona</Button>
+        <div className="site-container hero-layout">
+          <div className="hero-copy">
+            <p className="eyebrow">Crédito simples, claro e digital</p>
+            <h1 className="hero-title">Crédito para realizar seus planos.</h1>
+            <p className="hero-description">Simule seu empréstimo de forma simples, rápida e transparente.</p>
+            <div className="hero-actions">
+              <Button className="w-full sm:w-auto" onClick={onStart}>Simular empréstimo <ArrowRight className="size-4" /></Button>
+              <Button variant="secondary" className="w-full sm:w-auto" onClick={() => goTo("#como-funciona")}>Como funciona</Button>
             </div>
-            <p className="mt-6 flex items-center gap-2 text-sm text-muted-foreground"><Check className="size-4 text-primary" /> Simulação gratuita e sem compromisso.</p>
+            <p className="hero-assurance"><ShieldCheck className="size-4" aria-hidden="true" /> Simulação gratuita e sem compromisso.</p>
           </div>
           <HeroVisual onStart={onStart} />
         </div>
@@ -196,7 +195,37 @@ function SectionHeading({ eyebrow, title, text, dark = false }: { eyebrow: strin
 }
 
 function HeroVisual({ onStart }: { onStart: () => void }) {
-  return <figure className="hero-visual" aria-label="Prévia da experiência de simulação CredPay"><div className="hero-visual-grid"><p className="text-xs font-semibold uppercase text-muted-foreground">Prévia da simulação</p><div className="mt-8 grid gap-7"><div><span className="visual-label">Valor desejado</span><strong className="visual-value">R$ 8.000</strong></div><div className="range-preview"><span /></div><div className="grid grid-cols-2 gap-px overflow-hidden border border-border bg-border"><div className="visual-cell"><span>Prazo</span><strong>12 meses</strong></div><div className="visual-cell"><span>Parcela estimada</span><strong>R$ 756,02</strong></div></div><Button className="w-full" onClick={onStart}>Simular agora <ArrowRight className="size-4" /></Button><small className="text-center text-muted-foreground">Exemplo visual. Condições sujeitas à análise.</small></div></div><figcaption>Área preparada para o visual principal da CredPay</figcaption></figure>;
+  return (
+    <figure className="hero-visual" aria-label="Painel de simulação de crédito CredPay">
+      <div className="hero-panel">
+        <div className="hero-panel-header">
+          <div>
+            <span className="hero-panel-kicker">Simulação de crédito</span>
+            <p className="hero-panel-caption">Escolha uma possibilidade</p>
+          </div>
+          <span className="hero-panel-status"><span aria-hidden="true" /> Online</span>
+        </div>
+
+        <div className="hero-panel-amount">
+          <span>Valor desejado</span>
+          <strong>R$ 8.000</strong>
+        </div>
+
+        <div className="hero-range" aria-hidden="true">
+          <span className="hero-range-fill"><i /></span>
+        </div>
+        <div className="hero-range-labels" aria-hidden="true"><span>R$ 1 mil</span><span>R$ 30 mil</span></div>
+
+        <div className="hero-panel-details">
+          <div><span>Prazo</span><strong>12 meses</strong></div>
+          <div><span>Parcela estimada</span><strong>R$ 756,02</strong></div>
+        </div>
+
+        <Button className="mt-7 w-full" onClick={onStart}>Simular agora <ArrowRight className="size-4" /></Button>
+        <p className="hero-panel-note"><ShieldCheck className="size-4" aria-hidden="true" /> Você revisa as condições antes de continuar.</p>
+      </div>
+    </figure>
+  );
 }
 
 function TrustPoint({ icon, title }: { icon: ReactNode; title: string }) { return <div className="trust-point"><span>{icon}</span><h3>{title}</h3></div>; }
